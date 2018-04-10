@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>InterestCalculator</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style type="text/css">
+	#body2{
+
+		width: 1000px;
+		height: 650px;
+		background-color: #FFEFD5;
+		text-align: center;
+		margin-left: 70px;
+	}
+	#calc{
+
+		width: 700px;
+		height: 400px;
+		background-color: #FFEFD5;
+		margin-left: 160px;
+		margin-top: 200px;
+	}
+	#date{
+
+		margin-left: -90px;
+
+	}
+
+	#fromDate{
+		width: 300px;
+		height: 50px;
+
+
+	}
+	#toDate{
+		width: 300px;
+		height: 50px;
+
+
+	}
+	#boxB{
+		margin-left: -120px;
+
+	}
+	#p{
+		width: 300px;
+		height: 50px;
+
+
+	}
+	#r{
+		width: 300px;
+		height: 50px;
+		margin-left: 3px;
+
+	}
+	#t{
+		width: 300px;
+		height: 50px;
+		margin-left: 5px;
+	}
+	#t1{
+
+		margin-left: -20px;
+	}
+	button{
+		
+		border-radius: 5px;
+		font-family: Lucida Sans Typewriter;
+
+	}
+	#interest{
+		width: 303px;
+		height: 50px;
+		margin-left: 107px;
+	}
+	#reset{
+		width: 153px;
+		height: 50px;
+		margin-left: 106px;
+	}
+	#refresh{
+		width: 155px;
+		height: 50px;
+		margin-left: -5px;
+
+	}
+
+	#result{
+
+		width: 700px;
+		height: 150px;
+		background-color: 		#2F4F4F;
+		margin-left: 160px;
+		color: white;
+		position: fixed;
+		border-radius: 5px;
+		font-family: Rockwell Extra Bold;
+	}
+	#heading{
+        background-color: #4B0082;
+		text-decoration: underline;
+		margin-top: -1px;
+		font-size: 25px;
+font-family: Rockwell Extra Bold;
+	}
+	input{
+		border:1px solid grey;
+		font-size: 20px;
+		border-radius: 5px;
+        font-family: Didot;
+font-family: Rockwell Extra Bold;
+	}
+	#message{
+		font-size: 20px;
+
+
+	}
+	#message2{
+		font-size: 20px;
+
+
+	}
+
+	button:hover{
+
+		background-color: #2E8B57;
+		font-size: 20px;
+
+	}
+	label{
+
+		 font-family: Franklin Gothic Medium;
+	}
+</style>
+<script type="text/javascript">
+	function calculateTimeInMonth (){
+
+		var fromdate = document.getElementById("fromDate").value ;
+		var todate = document.getElementById("toDate").value  ;
+		var a = new Date(fromdate);
+		var b = new Date(todate);
+		var d =    Math.floor((Date.UTC(b.getFullYear(), b.getMonth(), b.getDate()) - Date.UTC(a.getFullYear(), a.getMonth(), a.getDate()) ) /(1000 * 60 * 60 * 24));
+		var dayValue = parseInt(d);
+		var totalMonth =  dayValue*0.0328767 ;
+		
+		//var totalintMonth = Math.round(totalMonth);
+		document.getElementById("t").value  = totalMonth ;
+	}
+	function actualCalculationAndValidation(){
+
+		var p = document.getElementById("p").value ;
+		var r = document.getElementById("r").value  ;
+		var t = document.getElementById("t").value  ;
+
+
+
+		if(p == "" && r == "" && t == ""){
+			document.getElementById("result").style.display ="block";
+			document.getElementById("heading").innerHTML = "Error Message"
+			document.getElementById("message").innerHTML ="Please Select Date Range , Enter p and r value ... "
+			document.getElementById("message2").innerHTML ="";
+			setTimeout(function() { document.getElementById("result").style.display ="none"}, 8000);
+
+		}else if(p =="" && r=="" ){
+
+			document.getElementById("result").style.display ="block";
+			document.getElementById("heading").innerHTML = "Error Message"
+			document.getElementById("message").innerHTML =" Please Enter  P and r value   ... "
+			document.getElementById("message2").innerHTML ="";
+			setTimeout(function() { document.getElementById("result").style.display ="none"}, 8000);
+
+		}else if(p == "" && t == ""){
+
+			document.getElementById("result").style.display ="block";
+			document.getElementById("heading").innerHTML = "Error Message"
+			document.getElementById("message").innerHTML =" Please Select Date Range and p value   ... "
+			document.getElementById("message2").innerHTML ="";
+			setTimeout(function() { document.getElementById("result").style.display ="none"}, 8000);
+
+		}else if(r == "" && t == ""){
+
+
+			document.getElementById("result").style.display ="block";
+			document.getElementById("heading").innerHTML = "Error Message"
+			document.getElementById("message").innerHTML =" Please Select  Date Range  and Enter r value   ... "
+			document.getElementById("message2").innerHTML ="";
+			setTimeout(function() { document.getElementById("result").style.display ="none"}, 8000);
+
+		}else if(p == ""){
+
+			document.getElementById("result").style.display ="block";
+			document.getElementById("heading").innerHTML = "Error Message"
+			document.getElementById("message").innerHTML =" Please Enter  P  value " ;    
+			document.getElementById("message2").innerHTML ="";
+			setTimeout(function() { document.getElementById("result").style.display ="none"}, 8000); 
+
+
+		}else if(r == ""){
+
+			document.getElementById("result").style.display ="block";
+			document.getElementById("heading").innerHTML = "Error Message"
+			document.getElementById("message").innerHTML =" Please Enter  r value   ... "
+			document.getElementById("message2").innerHTML ="";
+			setTimeout(function() { document.getElementById("result").style.display ="none"}, 8000);
+
+		}else if(t == ""){
+
+			document.getElementById("result").style.display ="block";
+			document.getElementById("heading").innerHTML = "Error Message"
+			document.getElementById("message").innerHTML =" Please Select  Date Range    ... "
+			document.getElementById("message2").innerHTML ="";
+			setTimeout(function() { document.getElementById("result").style.display ="none"}, 8000);
+		}else if( p <= 0 || t <= 0 || r <= 0){
+
+
+			document.getElementById("result").style.display ="block";
+			document.getElementById("heading").innerHTML = "Error Message"
+			document.getElementById("message").innerHTML ="Please Enter  only positive number (0 or -ve number not allow)";
+			document.getElementById("message2").innerHTML ="";
+			setTimeout(function() { document.getElementById("result").style.display ="none"}, 15000);
+		} else  {
+
+			var interst = p*r*t ;
+
+            // alert(interst);
+
+            var totalInterest =  interst/100
+
+            var intTotalInterest = totalInterest;
+
+              var intvalue = parseInt(intTotalInterest);
+
+             var totalPayableMoney = parseInt(p)+ intvalue ;
+
+             document.getElementById("result").style.display ="block";
+             document.getElementById("heading").innerHTML = "Interest Calculation"
+             document.getElementById("message").innerHTML =" Interest is *****  "+ intvalue  + "   *****" ;
+             document.getElementById("message2").innerHTML =" Total Payable Amount is *****  "+ totalPayableMoney  + "   *****" ;
+
+             
+              
+
+             setTimeout(function() { document.getElementById("result").style.display ="none"}, 8000);
+
+
+         }
+     }
+
+     function reset(){
+     	document.getElementById("fromDate").value = "" ;
+     	document.getElementById("toDate").value = "" ;
+     	document.getElementById("p").value = "";
+     	document.getElementById("r").value = "" ;
+     	document.getElementById("t").value = "" ;
+
+
+
+     }
+
+     function refresh(){
+
+     	location.reload ();
+     }
+	 
+	 function mouseoveronresult (){
+	 document.getElementById("result").style.display ="block" ;
+	   
+	 }
+	 function mouseoutonresult(){
+	  document.getElementById("result").style.display ="none" ;
+	 }
+    
+
+
+ </script>
+</head>
+<body bgcolor="skyblue">
+	<div id="body2">
+		<pre style="font-size: 35px"> <u>Interest Calculator </u> </pre>
+
+		<div id="result" style="display: none">
+			<pre id="heading">Interest Result</pre>
+			<pre id="message"></pre>
+			<hr/>
+			<pre id="message2"></pre>
+
+		</div>
+
+
+
+		<div id="calc">
+
+
+			<div id="date">
+
+				<label>FromDate: <input type="date" id="fromDate" onchange="calculateTimeInMonth()"></label>	
+				<label>ToDate: <input type="date" id="toDate" onchange="calculateTimeInMonth()"></label>
+			</div>
+			<div id="boxB">
+				<label>Enter P value  :<input type="number" id="p" placeholder="Enter principle/Muldhan"></label><br/>
+				<label>Enter r value  :<input type="number" id="r" placeholder="Enter rate "></label></br/>
+				<label id="t1">Genrated t value:<input type="number" id="t" value="" placeholder="Generated time in month" disabled=""></label></br/>
+				<button id="interest" onclick="actualCalculationAndValidation()">Calculate Interest </button><br/>
+				<button id="reset" onclick="reset()">Reset</button>
+				<button id="refresh" onclick="refresh()" >Refresh</button>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Fraction Calcultor </title>
+<style type="text/css">
+	#fC{
+
+		     margin-left: 435px;
+      margin-top: 100px;
+         text-align: center;
+         position: fixed;
+
+	}
+   #box{
+
+   	   width: 150px;
+   	   height: 55px;
+       border-radius: 5px;
+   }
+#reset{
+
+
+       width: 150px;
+       height: 55px;
+       border-radius: 5px;
+}
+#refreshBrowser{
+
+      width: 300px;
+      height: 55px;
+      border-radius: 5px;
+}
+button:hover{
+     background-color:#8B4513;
+}
+
+
+
+ #message{
+  margin-top: -8px;
+  text-align: center;
+     margin-left: 340px;
+     width: 500px;
+     height: 100px;
+     background-color : #FFFAF0;
+     border-radius: 7px;
+     position: fixed;
+     border-color: green;
+     }
+input{
+
+   border-radius: 5px;
+}
+
+
+</style>
+
+	<script type="text/javascript">
+
+
+		function findFactorial (){
+
+      var value =   document.getElementById("factorilafinder").value ;
+	  
+	          var nF = Math.round(value);
+           if(nF < 0 || nF == ""){
+           
+          document.getElementById("message").style.display = "block";
+
+
+          document.getElementById("dynamicBox").innerHTML ="Sorry !! Please Enter Positive Number";
+
+            setTimeout(function() { document.getElementById("message").style.display = "none";}, 8000);
+
+}
+         
+           else if(nF == 0){
+            
+              document.getElementById("message").style.display = "block";
+
+             document.getElementById("dynamicBox").innerHTML ="Factorial Value is == 1 ";
+  setTimeout(function() { document.getElementById("message").style.display = "none";}, 8000);
+
+           }else if(nF <= 170 ){
+/*
+
+ condiion to  find Factorial 
+
+*/
+                var  i ,  factorial =1 ;
+
+                for(i=1;i<=nF ; i++){
+                    
+                   var factorial = factorial*i;
+
+                      if(i==nF){
+         document.getElementById("message").style.display = "block";
+                   	
+             document.getElementById("dynamicBox").innerHTML ="Factorial Value is == "+factorial;
+  setTimeout(function() { document.getElementById("message").style.display = "none";}, 8000);
+                   }    
+
+                }
+          }
+
+         else {
+
+                  document.getElementById("message").style.display = "block";
+                    
+             document.getElementById("dynamicBox").innerHTML ="Factorial Value is == Infinity "
+             setTimeout(function() { location.reload() }, 8000);
+                // location.reload();  
+
+         }
+}
+// Reset Text box 
+
+           function reset (){
+
+  document.getElementById("factorilafinder").value = "";
+
+           }
+
+           // Refresh Browser 
+
+           function refreshBrowser (){
+
+            location.reload();
+
+           }
+
+</script>
+</head>
+<body bgcolor="skyblue" >
+ 
+
+<div style="display: none" id="message" style="display: block">
+	
+ <h4><b><u> Factorial Calculation</u></b></h4>
+
+<pre id="dynamicBox">
+	
+ </pre>
+
+</div>
+<div id="fC">
+
+<h3 id="fcText"> <b><u>Factorial Calcultor </u> </b>  </h3>
+<input  style="width: 300px; height: 100px" type="number" id="factorilafinder" placeholder="Enter only Positive Number"  ><br/>
+
+<button id="box" onclick="findFactorial()">Calculate Factorial</button>
+
+<button id="reset" onclick="reset()">ResetButton</button><br/>
+<button id="refreshBrowser" onclick="refreshBrowser()">Refresh Browser</button>
+
+</div>
+</body>
+</html>

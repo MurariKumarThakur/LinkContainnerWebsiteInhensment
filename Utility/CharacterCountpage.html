@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html >
+<head>
+	<title> Character count page </title>
+	<style type="text/css">
+		#heading{
+		  margin-top: 100px;
+          margin-left: 450px;
+          color: white;
+          font-size: 20px;
+
+		}
+#div2{
+		float: left;
+		margin-left: 200px; 
+		margin-top: 20px;
+		}
+
+		#box_1{
+			
+			margin-left: 140px;
+			margin-top: 1px;
+			border-radius: 5px;
+            font-size: 15px;
+            background-color: GhostWhite   ;
+
+		}
+		button{
+
+			border-radius: 3px;
+			font-size: 20px;
+			background-color: green;
+			color: white;
+		}
+	</style>
+</head>
+<body bgcolor="lighblue">
+<script type="text/javascript">
+
+
+ 
+  function Count_Character (){
+
+  	var text = document.getElementById("box_1").value;
+  
+      
+     var  count = text.length;
+   
+
+    alert("Character Count With space  is  = " + count );
+
+  }
+
+  function clear_Text (){
+  	document.getElementById("box_1").value = "";
+  }
+function Count_Charcter_Without_space (){
+  
+	var text = document.getElementById("box_1").value;
+  
+      
+    //  var  count = text.length;
+     //var withoutSpace = text.replace(/ /g,,"");
+var withoutSpace = text.replace(/\s/g, "");
+var length = withoutSpace.length;
+
+       alert("Character Count Without space  is = " + length);
+}
+</script>
+<h3 id="heading" style="color: yellow"> Murari's Character count  box  </h3>
+<div id="box">
+
+<textarea id="box_1" rows="20" cols="100" name="comment" form="usrform" placeholder="Enter Text Here ..." >
+</textarea>
+</div>
+<div id="div2">
+ <button  id="button1"  onclick="Count_Character()"> Count Character With space</button>
+ <button  id="button1"  onclick="Count_Charcter_Without_space()"> Count Character Without space </button>
+  <button style="background-color: red" onclick="clear_Text()"> Clear Box </button>	
+</div>
+</body>
+</html>

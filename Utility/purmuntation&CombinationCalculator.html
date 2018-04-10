@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Purmunation&Combination Caluclator</title>
+
+	<style type="text/css">
+#SelectionBox{
+
+	 width: 1000px;
+	 height: 100px;
+	 background-color:#FFEFD5;
+	  margin-left: 70px;
+	  margin-top: 50px; 
+}
+
+		#box{
+      
+         width: 1000px;
+         height: 500px;
+         background-color: #FFEFD5;
+        
+         margin-left: 70px;
+          margin-top: 80px; 
+		  border-radius:5px;
+		  
+		}
+     #permuntation{
+
+     	width: 300px;
+     	height: 50px;
+     	margin-top: 10px;
+     }
+#combination{
+
+     	width: 300px;
+     	height: 50px;
+     	margin-top: 10px;
+     }
+
+     #nValueBox{
+
+     width: 300px;
+     height: 50px;
+     margin-top: -12px;
+     	
+     }
+
+     #rValueBox{
+
+     width: 300px;
+     height: 50px;
+     margin-top: -13px;
+     	
+     }
+
+#Heading{
+    
+      text-align: center;
+       text-decoration: underline;
+
+}
+#allfield{
+
+margin-left: 240px;
+
+}
+#SumbitButton{
+
+margin-left: 108px;
+width: 305px;
+height: 60px;
+font-size: 20px;
+margin-top: -13px;
+}
+#SumbitButton2{
+
+margin-left: 108px;
+width: 305px;
+height: 60px;
+font-size: 20px;
+margin-top: 1px;
+}
+#result{
+  width: 700px;
+  height: 100px;
+  background-color: #2F4F4F;
+  margin-left: 150px;
+  text-align: center;
+  color: white;
+   position: fixed;
+    border-radius: 8px;
+  
+
+
+  
+
+}
+
+#resultHeadingMessage{
+
+	text-decoration: underline;
+	margin-top: -1px;
+
+}
+
+#resultvalue{
+  
+   margin-left: -150px;
+
+}
+#allfield{
+
+	margin-top: 135px;
+	margin-left: 220px;
+
+}
+#reset{
+margin-left: 108px;
+width: 155px;
+height: 60px;
+font-size: 20px;
+margin-top: 1px;
+
+
+}
+#refresh{
+margin-left: -5px;
+width: 151px;
+height: 60px;
+font-size: 20px;
+margin-top: 1px;
+
+}
+button:hover{
+
+	background-color: lightgreen;
+}
+button{
+
+border-radius: 5px;
+
+}
+
+
+input{
+    
+	border-radius: 5px;
+
+
+}
+
+
+
+
+
+	</style>
+	<script type="text/javascript"> 
+
+    
+
+
+
+
+/*
+
+
+		function permuntationSelection () {
+      
+     var a =     document.getElementById("permuntation").checked ;
+         
+
+
+       if(a==true){
+
+       document.getElementById("combination").checked = "" ;
+       document.getElementById("Heading").innerHTML = "Permuntation Calculator" ;
+       document.getElementById("SumbitButton").innerHTML="Permuntation Combination";
+       document.getElementById("SumbitButton").innerHTML.onclick =findPermuntation();
+
+
+        
+
+       } else{
+
+       	 document.getElementById("combination").checked = "ture" ;  
+       	   document.getElementById("Heading").innerHTML = "Combination Calculator" ;
+      document.getElementById("SumbitButton").innerHTML="Caluculate Combination";
+    document.getElementById("SumbitButton").innerHTML.onclick =findCombination ();
+
+
+
+
+
+       }
+
+
+
+        }
+ function combinationSelection(){
+
+   var b =  document.getElementById("combination").checked ;
+
+ 
+
+    if(b==true){
+  document.getElementById("permuntation").checked = "" ;
+    document.getElementById("Heading").innerHTML = "Combination Calculator" ;
+   document.getElementById("SumbitButton").innerHTML="Caluculate Combination";
+  document.getElementById("SumbitButton").innerHTML.onclick =findCombination ();
+
+       }else{
+
+   document.getElementById("permuntation").checked = "ture" ; 
+      document.getElementById("Heading").innerHTML = "Permuntation Calculator" ;
+       document.getElementById("SumbitButton").innerHTML="Permuntation Combination";
+    document.getElementById("SumbitButton").innerHTML.onclick =findPermuntation();
+       } 
+}	
+
+ 
+*/
+
+
+
+//  logic part  
+
+     function reset (){
+
+        document.getElementById("nValueBox").value = "";
+
+        document.getElementById("rValueBox").value = "" ;
+
+
+     }
+    function refresh(){
+
+    	location.reload();
+    }
+
+
+ // find permuntation 
+     
+      function findPermuntation(){
+        
+
+
+        var n = document.getElementById("nValueBox").value ;
+
+        var r = document.getElementById("rValueBox").value ;
+
+        var nr = n-r ;
+         
+
+           if(n == "" && r == ""){
+           document.getElementById("result").style.display ="block" ;
+
+        document.getElementById("resultHeadingMessage").innerHTML ="Error Message";
+
+        document.getElementById("resultvalue").innerHTML ="          Please   Enter n value  and r value .... ";
+
+        setTimeout(function() { document.getElementById("result").style.display ="none"}, 8000);
+
+            }else if(n == "") {
+ document.getElementById("result").style.display ="block" ;
+
+        document.getElementById("resultHeadingMessage").innerHTML ="Error Message";
+
+        document.getElementById("resultvalue").innerHTML ="          Please   Enter n value  .... ";
+
+        setTimeout(function() { document.getElementById("result").style.display ="none"}, 8000);
+
+
+
+            }else if(r == ""){
+document.getElementById("result").style.display ="block" ;
+
+        document.getElementById("resultHeadingMessage").innerHTML ="Error Message";
+
+        document.getElementById("resultvalue").innerHTML ="          Please   Enter r value  .... ";
+
+        setTimeout(function() { document.getElementById("result").style.display ="none"}, 8000);
+
+            } else if(n==0 && r==0) {
+           document.getElementById("result").style.display ="block" ;       
+                 document.getElementById("resultHeadingMessage").innerHTML ="Permuntation Calculation ";
+
+        document.getElementById("resultvalue").innerHTML ="               Permunation value is ==  1 " ;
+
+        setTimeout(function() { document.getElementById("result").style.display ="none"}, 8000);
+
+
+
+
+
+            }
+   
+
+          else if(n>=0 && r>=0){
+             
+             
+
+
+          if(n-r>=1){
+            var i , nf = 1;
+            for(i=1; i<=n; i++){
+               var nf = nf*i;
+                     if(i==n){
+                
+                     var  nvalue = nf ;
+
+                 
+       }  
+                   
+
+       }
+             var j ; rf = 1 ;
+
+           for(j=1;j<=nr;j++){
+
+             var rf = rf*j;
+
+               if(j==nr){
+
+               var rvalue =   rf ;
+
+
+               
+
+                  
+               }
+        
+
+           }
+
+            
+           var totelPermuntation = nvalue / rvalue ;
+   document.getElementById("result").style.display ="block" ;       
+                 document.getElementById("resultHeadingMessage").innerHTML ="Permuntation Calculation ";
+
+        document.getElementById("resultvalue").innerHTML ="                 Permunation value is ==  " + totelPermuntation ;
+
+        setTimeout(function() { document.getElementById("result").style.display ="none"}, 8000);
+
+
+
+
+
+
+
+
+          }else if(n == r){
+
+          	  var  i , nf = 1 ;
+
+                for(i=1;i<=n ; i++){
+                    
+                   var nf = nf*i;
+                     if(i==n){
+                 document.getElementById("result").style.display ="block" ;       
+                 document.getElementById("resultHeadingMessage").innerHTML ="Permuntation Calculation ";
+
+        document.getElementById("resultvalue").innerHTML ="                Permunation value is ==  " + nf ;
+
+        setTimeout(function() { document.getElementById("result").style.display ="none"}, 8000);
+
+
+                     
+
+                     }  
+                   
+                   }      
+
+
+          }else {
+        document.getElementById("result").style.display ="block" ;
+
+        document.getElementById("resultHeadingMessage").innerHTML ="Error Message";
+
+        document.getElementById("resultvalue").innerHTML ="             n value should be greater or Equal To r value ... ";
+
+        setTimeout(function() { document.getElementById("result").style.display ="none"}, 8000);
+
+          }
+            
+            }else {
+
+      document.getElementById("result").style.display ="block" ;
+
+        document.getElementById("resultHeadingMessage").innerHTML ="Error Message";
+
+        document.getElementById("resultvalue").innerHTML ="            check n value  or r value it should be greater or Equal 0 ... ";
+
+        setTimeout(function() { document.getElementById("result").style.display ="none"}, 8000);
+
+            }  
+
+
+          
+      }
+
+
+ // find comination 
+
+
+         function findCombination (){
+         	
+        var n = document.getElementById("nValueBox").value ;
+
+        var r = document.getElementById("rValueBox").value ;
+
+        var nr = n-r ;
+         
+
+           if(n == "" && r == ""){
+           document.getElementById("result").style.display ="block" ;
+
+        document.getElementById("resultHeadingMessage").innerHTML ="Error Message";
+
+        document.getElementById("resultvalue").innerHTML ="          Please   Enter n value  and r value .... ";
+
+        setTimeout(function() { document.getElementById("result").style.display ="none"}, 8000);
+
+            }else if(n == "") {
+ document.getElementById("result").style.display ="block" ;
+
+        document.getElementById("resultHeadingMessage").innerHTML ="Error Message";
+
+        document.getElementById("resultvalue").innerHTML ="          Please   Enter n value  .... ";
+
+        setTimeout(function() { document.getElementById("result").style.display ="none"}, 8000);
+
+
+
+            }else if(r == ""){
+document.getElementById("result").style.display ="block" ;
+
+        document.getElementById("resultHeadingMessage").innerHTML ="Error Message";
+
+        document.getElementById("resultvalue").innerHTML ="          Please   Enter r value  .... ";
+
+        setTimeout(function() { document.getElementById("result").style.display ="none"}, 8000);
+
+            }  
+   
+
+          else if(n>=0 && r>=0){
+             
+             
+            // find n factorial 
+
+          if(n-r>=1){
+            var i , nf = 1;
+            for(i=1; i<=n; i++){
+               var nf = nf*i;
+                     if(i==n){
+                
+                     var  nvalue = nf ;
+
+                 
+       }  
+                   
+
+       }
+       // find n-r factorial 
+             var j ; rf = 1 ;
+
+           for(j=1;j<=nr;j++){
+
+             var rf = rf*j;
+
+               if(j==nr){
+
+               var rvalue =   rf ;
+
+
+               
+
+                  
+               }
+        
+
+           }
+           // find r factorial 
+          var k ; kf=1;
+
+          for(k=1;k<=r;k++){
+
+          	var kf = kf*k ;
+
+          	if(k==r){
+
+          		var kvalue = kf ;
+          	}
+          }
+
+            var rkValue = rvalue * kvalue ;
+            
+           var totelCombination = nvalue / rkValue ;
+   document.getElementById("result").style.display ="block" ;       
+    document.getElementById("resultHeadingMessage").innerHTML ="Combination Calculation ";
+
+        document.getElementById("resultvalue").innerHTML ="                Combination value is ==  " + totelCombination ;
+
+        setTimeout(function() { document.getElementById("result").style.display ="none"}, 8000);
+
+
+
+
+
+
+
+
+          }else if(n == r){
+
+          	
+                 document.getElementById("result").style.display ="block" ;       
+                 document.getElementById("resultHeadingMessage").innerHTML ="Combination Calculation ";
+
+          document.getElementById("resultvalue").innerHTML ="                Combination value is ==   1 " ; 
+
+        setTimeout(function() { document.getElementById("result").style.display ="none"}, 8000);
+
+
+                     
+
+                      
+                   
+                        
+
+
+          }else {
+        document.getElementById("result").style.display ="block" ;
+
+        document.getElementById("resultHeadingMessage").innerHTML ="Error Message";
+
+        document.getElementById("resultvalue").innerHTML ="             n value should be greater or Equal To r value ... ";
+
+        setTimeout(function() { document.getElementById("result").style.display ="none"}, 8000);
+
+          }
+            
+            }else {
+
+      document.getElementById("result").style.display ="block" ;
+
+        document.getElementById("resultHeadingMessage").innerHTML ="Error Message";
+
+        document.getElementById("resultvalue").innerHTML ="            check n value  or r value it should be greater or Equal 0 ... ";
+
+        setTimeout(function() { document.getElementById("result").style.display ="none"}, 8000);
+
+            }  
+
+
+
+
+         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	</script>
+ 
+</head>
+
+
+
+
+<body bgcolor="skyblue">
+
+	<!--
+<div id="SelectionBox">
+	
+  Permuntation  <input onclick="permuntationSelection()" type="checkbox" id="permuntation"checked="true">
+	Combinataton<input onclick="combinationSelection()" type="checkbox" id="combination"> -->
+	
+	
+</div>
+<div id="box">
+ <h2 id="Heading"> Permuntation  & Combination Calculator  </h2>	
+ 
+<div style="display: none" id="result"> 
+ <h2 id="resultHeadingMessage">Permuntation Calculation Box </h2>
+
+ <pre style="font-size: 20px" id="resultvalue"></pre>
+
+</pre>
+
+
+
+
+
+
+
+
+
+</div>
+
+
+ <div id="allfield">
+ <pre >Enter n value <input type="number" id="nValueBox" placeholder ="Enter n value "></pre>
+<pre>Enter r value <input type="number" id="rValueBox" placeholder="Enter r value "></pre>
+<button  id="SumbitButton" onclick="findPermuntation()">Calculate Permuntation</button>
+<button  id="SumbitButton2" onclick="findCombination()">Calculate Combination</button><br/>
+<button id="reset" onclick="reset()">Reset Button</button>
+<button id="refresh" onclick="refresh()">Refresh Button</button>
+</div>
+</div>
+
+
+
+
+
+
+
+</body>
+</html>
