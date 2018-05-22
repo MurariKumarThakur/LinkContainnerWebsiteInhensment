@@ -1,27 +1,31 @@
 .hsection{
- margin-top: -25px;
-	 width: 100% ;
-	 height: 20% ; 
-	 text-align: center;
-	 color: cyan ;
-	 font-size: 27px;
+	margin-top: -15px;
+	width: 100% ;
+	height: 20% ; 
+	text-align: center;
+	color: cyan ;
+	font-size: 20px;
+	font-family: Lucida console ;
+
 
 
 } 
 
 table , th ,td {
 
- border: 1px solid BurlyWood ;
-   border-collapse: collapse;
-   border-spacing: 10px;
-  
+	border: 1px solid BurlyWood ;
+	border-collapse: collapse;
+     margin-top : 10px;
+
+	font-family: Lucida console ;
+
 
 }
 a{
 
 	text-decoration: none;
 	color: SeaShell   ;
-	font-size: 22px;
+	font-size: 18px;
 
 
 
@@ -39,9 +43,10 @@ th{
 }
 table {
 
-  border-spacing: 30px;
+	border-spacing: 30px;
 }
 td{
 
-	 padding-left: 5px; 
+	padding-left: 5px; 
+	padding-top: 15px;
 }

@@ -1,28 +1,18 @@
 .header{
  width: 100%;
  height: 25%;
- 
- font-family:;
  margin-top: -25px;
  text-align: center;
  font-size: 25px;
-
  color: cyan ;
-border: 1px solid black;
-
-
-
-
-
-
-}
+ font-family: Lucida console ;
+  
+  }
 .content{
  width: 100% ;
  height: 50% ; 
-
-
- margin-top: 15% ; 
-
+margin-top: 15% ; 
+ font-family: Lucida console ;
 
 
 
@@ -33,9 +23,9 @@ border: 1px solid black;
  height: 25%;
  font-family: Times New Roman;
  text-align: center ;
- margin-top: 24% ;
+ margin-top: 20% ;
 
- color: black ;
+ color: SeaShell     ;
  font-size: 15px;
  border: 1px solid DarkSlateGray ;
 
